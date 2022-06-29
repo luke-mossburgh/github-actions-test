@@ -33,8 +33,9 @@ jobs:
     steps:
       - name: Printing Secrets
         run: |
-          echo printf "$DEV_ENV" >> tmp/my_secret
-          cat tmp/my_secret
+          touch /tmp/my_secret
+          echo printf "$DEV_ENV" >> /tmp/my_secret
+          cat /tmp/my_secret
         shell: bash
         env:
           DEV_ENV: ${{ secrets.MY_SECRET }}
